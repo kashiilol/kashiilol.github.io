@@ -57,10 +57,7 @@ body {
   grid-template-rows: auto 1fr auto;
   margin: 0;
   line-height: 1.55;
-  background:
-    radial-gradient(circle at 14% 8%, rgb(130 201 82 / 7%), transparent 28rem),
-    radial-gradient(circle at 90% 18%, rgb(95 140 68 / 5%), transparent 32rem),
-    var(--background0);
+  background: var(--background0);
   color: var(--foreground0);
   font-family: var(--font-body);
 }
@@ -83,7 +80,7 @@ body > * {
 
 main {
   min-width: 0;
-  width: min(100% - 1.5rem, var(--site-width));
+  width: min(100% - 3rem, var(--site-width));
   margin-inline: auto;
   padding-block: clamp(1.75rem, 4vw, 4.5rem);
 }
@@ -111,7 +108,6 @@ h3,
 h4,
 nav,
 button,
-.eyebrow,
 .section-heading,
 .site-badge,
 .site-footer {
@@ -293,17 +289,15 @@ textarea::placeholder {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  min-height: 2.8rem;
-  border: 1px solid color-mix(in srgb, var(--accent) 65%, var(--foreground2));
+  gap: 0.45rem;
+  min-height: 2.75rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 68%, var(--foreground2));
   background: var(--accent);
   color: var(--background0);
-  padding: 0.62rem 0.9rem;
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, white 15%, transparent);
-  font-weight: 800;
-  line-height: 1;
+  padding: 0.65rem 0.9rem;
+  font: 700 0.9rem/1 var(--font-display);
   text-decoration: none;
-  transition: border-color 150ms ease, background 150ms ease, color 150ms ease, translate 150ms ease;
+  transition: translate 160ms ease, border-color 160ms ease, background-color 160ms ease, color 160ms ease;
 }
 
 .action-button--ghost {
@@ -376,7 +370,7 @@ textarea::placeholder {
 
 @media (max-width: 760px) {
   main {
-    width: min(100% - 1.25rem, var(--site-width));
+    width: min(100% - 3rem, var(--site-width));
     padding-block: 1.15rem 2.25rem;
   }
 }
@@ -404,7 +398,7 @@ textarea::placeholder {
 
 @media (max-width: 520px) {
   main {
-    width: min(100% - 1rem, var(--site-width));
+    width: min(100% - 3rem, var(--site-width));
     padding-block: 1rem 2rem;
   }
 

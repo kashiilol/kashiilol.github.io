@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     question: 'Who owns the finished music?',
-    answer: 'Usage rights vary by service. The agreed licence, credits and permitted use will be written into the quote before production begins.',
+    answer: 'Usage rights vary by service. The agreed licence, credits and permitted use will be written into the quote before work starts.',
   },
   {
     question: 'How long will it take?',
@@ -37,10 +37,6 @@ const faqs = [
   description="Music production commissions for custom beats, mixing, beat licences and full song production."
 >
   <div class="commissions-page">
-    <header class="commissions-hero">
-      <h1>Commissions</h1>
-      <p>Pick what’s closest to what you need, then send me the details and I’ll confirm the final price before I start. Starting prices are in AUD.</p>
-    </header>
 
     <section id="services" class="services-section" aria-labelledby="pricing-title">
       <div class="section-heading">
@@ -71,7 +67,7 @@ const faqs = [
       <ol class="flow-list">
         <li><strong>01</strong><div><h3>Send</h3><p>Use the contact details below to send me a short project brief.</p></div></li>
         <li><strong>02</strong><div><h3>Quote</h3><p>Scope, price, revisions, rights and timing are confirmed in writing.</p></div></li>
-        <li><strong>03</strong><div><h3>Create</h3><p>A first pass is produced and shared at the agreed review point.</p></div></li>
+        <li><strong>03</strong><div><h3>Create</h3><p>A first pass is made and shared at the agreed review point.</p></div></li>
         <li><strong>04</strong><div><h3>Finish</h3><p>Feedback is applied and the approved files are delivered.</p></div></li>
       </ol>
     </section>
@@ -79,10 +75,8 @@ const faqs = [
     <section id="contact" class="contact-section" aria-labelledby="contact-title">
       <div class="contact-primary">
         <h2 id="contact-title">Contact</h2>
-        <p>Discord is the best way to reach me. You can also use my SoundCloud profile.</p>
-        <a class="action-button contact-action" href={discordProfileUrl} target="_blank" rel="noreferrer">Message on Discord <span aria-hidden="true">↗</span></a>
         <dl>
-          <div><dt>Discord</dt><dd>helpimdead111</dd></div>
+          <div><dt>Discord</dt><dd><a class="action-button contact-action" href={discordProfileUrl} target="_blank" rel="noreferrer">helpimdead111 <span aria-hidden="true">↗</span></a></dd></div>
           <div><dt>Also on</dt><dd><a href={soundCloudProfile} target="_blank" rel="noreferrer">SoundCloud ↗</a></dd></div>
         </dl>
       </div>
@@ -133,10 +127,10 @@ Anything else I should know: I have the vocals recorded and would also like an i
       </div>
       <div class="faq-list">
         {faqs.map((faq) => (
-          <details>
-            <summary>{faq.question}</summary>
+          <article class="faq-item">
+            <h3>{faq.question}</h3>
             <p>{faq.answer}</p>
-          </details>
+          </article>
         ))}
       </div>
     </section>
@@ -151,28 +145,6 @@ Anything else I should know: I have the vocals recorded and would also like an i
     gap: clamp(4.5rem, 11vw, 8rem);
   }
 
-  .commissions-hero {
-    display: grid;
-    justify-items: start;
-    gap: 1rem;
-    padding-block: clamp(1rem, 5vw, 3rem);
-  }
-
-
-  .commissions-hero h1 {
-    max-width: 14ch;
-    margin: 0;
-    font-size: clamp(3rem, 9vw, 6rem);
-    line-height: 0.88;
-    letter-spacing: -0.075em;
-  }
-
-  .commissions-hero > p {
-    max-width: 62ch;
-    margin: 0;
-    color: var(--foreground1);
-    font-size: clamp(1rem, 2vw, 1.15rem);
-  }
 
 
 
@@ -263,6 +235,7 @@ Anything else I should know: I have the vocals recorded and would also like an i
 
   .service-action {
     width: 100%;
+    margin-block-start: auto;
   }
 
   .flow-list {
@@ -327,15 +300,6 @@ Anything else I should know: I have the vocals recorded and would also like an i
     line-height: 1;
   }
 
-  .contact-primary > p:nth-child(3) {
-    margin: 0;
-    color: var(--foreground1);
-  }
-
-  .contact-action {
-    width: 100%;
-    margin-block: 0.5rem;
-  }
 
   .contact-primary dl {
     width: 100%;
@@ -371,22 +335,19 @@ Anything else I should know: I have the vocals recorded and would also like an i
     gap: 0.7rem;
   }
 
-  .brief-tools details,
-  .faq-list details {
+  .brief-tools details {
     border-block-start: 1px solid var(--border-subtle);
     background: var(--surface);
   }
 
-  .brief-tools summary,
-  .faq-list summary {
+  .brief-tools summary {
     cursor: pointer;
     padding: 1rem;
     color: var(--foreground0);
     font: 700 0.9rem/1.3 var(--font-display);
   }
 
-  .brief-tools details[open] summary,
-  .faq-list details[open] summary {
+  .brief-tools details[open] summary {
     color: var(--accent-soft);
   }
 
@@ -444,9 +405,24 @@ Anything else I should know: I have the vocals recorded and would also like an i
     gap: 0.7rem;
   }
 
-  .faq-list details > p {
+  .faq-item {
+    padding: 1rem;
+    border-block-start: 1px solid var(--border-subtle);
+    background: var(--surface);
+  }
+
+  .faq-item h3,
+  .faq-item p {
     margin: 0;
-    padding: 0 1rem 1rem;
+  }
+
+  .faq-item h3 {
+    color: var(--foreground0);
+    font: 700 0.9rem/1.3 var(--font-display);
+  }
+
+  .faq-item p {
+    margin-block-start: 0.65rem;
     color: var(--foreground1);
     font-size: 0.92rem;
   }

@@ -18,7 +18,7 @@ export const services: readonly Service[] = [
     id: 'custom-beat',
     name: 'Custom beat',
     price: '$120',
-    summary: 'A new EDM or pop instrumental built around your references and direction.',
+    summary: 'A new EDM or pop instrumental made around your references and direction.',
     includes: ['Arrangement and sound design', 'One revision', 'WAV + stems'],
   },
   {

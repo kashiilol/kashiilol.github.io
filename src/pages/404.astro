@@ -8,9 +8,7 @@ import { withBase } from '../lib/withBase';
     <div class="equalizer" aria-hidden="true">
       <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
     </div>
-    <p class="eyebrow">404 / no signal</p>
     <h1 id="not-found-title">This track does not exist.</h1>
-    <p>The page may have moved, or the link may be out of tune.</p>
     <div class="hero-actions">
       <a class="action-button" href={withBase('/')}>Return home</a>
       <a class="action-button action-button--ghost" href={withBase('/projects/')}>Browse music</a>
@@ -58,13 +56,6 @@ import { withBase } from '../lib/withBase';
   .equalizer span:nth-child(6) { --level: 78%; animation-delay: -1.1s; }
   .equalizer span:nth-child(7) { --level: 38%; animation-delay: -0.35s; }
 
-  .eyebrow {
-    margin: 0;
-    color: var(--accent-soft);
-    font: 700 0.75rem/1.2 var(--font-display);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
 
   h1 {
     max-width: 14ch;
@@ -74,11 +65,6 @@ import { withBase } from '../lib/withBase';
     letter-spacing: -0.07em;
   }
 
-  .not-found > p:nth-of-type(2) {
-    max-width: 44ch;
-    margin: 0;
-    color: var(--foreground1);
-  }
 
   .hero-actions {
     padding-block-start: 0.5rem;

@@ -19,7 +19,6 @@ const discordProfileUrl = 'https://discord.com/users/576348645742608387';
     />
   </div>
   <div class="profile-copy">
-    <p class="eyebrow">Music producer</p>
     <div class="name-row">
       <h1 id="profile-title">kashii</h1>
       <div class="socials" aria-label="Social profiles">
@@ -31,7 +30,7 @@ const discordProfileUrl = 'https://discord.com/users/576348645742608387';
         </a>
       </div>
     </div>
-    <p class="lead">I produce electronic dance and pop music from Brisbane, Queensland, Australia.</p>
+    <p class="lead">I make electronic dance and pop music from Brisbane, Queensland, Australia.</p>
     <p class="availability"><span aria-hidden="true"></span> Open for commissions</p>
     <div class="hero-actions">
       <a class="action-button" href={withBase('/projects/')}>Listen to tracks <span aria-hidden="true">→</span></a>
@@ -56,9 +55,30 @@ const discordProfileUrl = 'https://discord.com/users/576348645742608387';
 
   .avatar-frame {
     position: relative;
-    padding: 0.45rem;
-    border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--border-subtle));
+    padding: 0.5rem;
+    border: 1px solid color-mix(in srgb, var(--accent) 48%, var(--border-subtle));
     background: color-mix(in srgb, var(--accent) 8%, var(--background0));
+  }
+
+  .avatar-frame::before,
+  .avatar-frame::after {
+    content: '';
+    position: absolute;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-color: var(--accent-cyan);
+  }
+
+  .avatar-frame::before {
+    inset: -1px auto auto -1px;
+    border-block-start: 2px solid;
+    border-inline-start: 2px solid;
+  }
+
+  .avatar-frame::after {
+    inset: auto -1px -1px auto;
+    border-block-end: 2px solid;
+    border-inline-end: 2px solid;
   }
 
   .avatar {
@@ -75,13 +95,6 @@ const discordProfileUrl = 'https://discord.com/users/576348645742608387';
     gap: 0.75rem;
   }
 
-  .eyebrow {
-    margin: 0;
-    color: var(--accent-soft);
-    font: 700 0.75rem/1.2 var(--font-display);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
 
   .name-row {
     display: flex;
@@ -145,14 +158,12 @@ const discordProfileUrl = 'https://discord.com/users/576348645742608387';
     height: var(--social-icon-height);
     max-width: none;
     object-fit: contain;
-    filter: grayscale(1) brightness(1.8);
-    opacity: 0.8;
-    transition: filter 160ms ease, opacity 160ms ease, scale 160ms ease;
+    filter: grayscale(1) brightness(1.7);
+    transition: filter 160ms ease, scale 160ms ease;
   }
 
   .socials a:hover img {
-    filter: grayscale(1) brightness(2.3);
-    opacity: 1;
+    filter: none;
     scale: 1.06;
   }
 
@@ -163,14 +174,14 @@ const discordProfileUrl = 'https://discord.com/users/576348645742608387';
     padding-block-start: 0.35rem;
   }
 
-  @media (max-width: 680px) {
+  @media (max-width: 700px) {
     .profile-card {
       grid-template-columns: 1fr;
-      gap: 1.2rem;
+      gap: 1.35rem;
     }
 
     .avatar-frame {
-      width: min(10rem, 48vw);
+      width: min(11rem, 52vw);
       justify-self: center;
     }
 

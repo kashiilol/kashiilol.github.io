@@ -16,7 +16,6 @@ const playerUrl = `https://w.soundcloud.com/player/?url=${encodeURIComponent(tra
     <span aria-hidden="true">LATEST / 01</span>
   </div>
   <div class="player-copy">
-    <p class="eyebrow">Latest upload</p>
     <h1 id="featured-track-title">{track.title}</h1>
     <p class="track-meta">{track.format} · {track.genre} · {track.releaseDate}</p>
     {track.note && <p class="track-note">{track.note}</p>}
@@ -86,16 +85,9 @@ const playerUrl = `https://w.soundcloud.com/player/?url=${encodeURIComponent(tra
     padding: clamp(1.25rem, 4vw, 3rem);
   }
 
-  .eyebrow {
-    margin: 0;
-    color: var(--accent-soft);
-    font: 700 0.75rem/1.2 var(--font-display);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
 
   h1 {
-    margin-block: 0.75rem 0;
+    margin: 0;
     font-size: clamp(2.3rem, 7vw, 5rem);
     line-height: 0.9;
     letter-spacing: -0.07em;

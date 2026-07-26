@@ -23,7 +23,6 @@ const uploadCount = (count: number) => `${count} ${count === 1 ? 'upload' : 'upl
     <section id="originals" class="track-section" aria-labelledby="originals-title">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">Original work</p>
           <h2 id="originals-title">Original tracks</h2>
         </div>
         <p>{uploadCount(originalTracks.length)}</p>
@@ -39,7 +38,6 @@ const uploadCount = (count: number) => `${count} ${count === 1 ? 'upload' : 'upl
     <section id="sample-flips" class="track-section" aria-labelledby="reinterpretations-title">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">Reinterpretations</p>
           <h2 id="reinterpretations-title">Sample flip</h2>
         </div>
         <p>{uploadCount(reinterpretations.length)}</p>
@@ -72,21 +70,21 @@ const uploadCount = (count: number) => `${count} ${count === 1 ? 'upload' : 'upl
   }
 
   .track-grid--two {
-    width: min(100%, calc((100% - 1.35rem) * 0.667));
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(100%, calc((100% - 2.7rem) / 3));
+    grid-template-columns: 1fr;
     margin-inline: auto;
   }
 
   @media (max-width: 900px) {
     .track-grid--two {
-      width: 100%;
+      width: min(100%, calc((100% - 1.35rem) / 2));
     }
   }
 
 
   @media (max-width: 640px) {
     .track-grid--two {
-      grid-template-columns: 1fr;
+      width: 100%;
     }
   }
 </style>

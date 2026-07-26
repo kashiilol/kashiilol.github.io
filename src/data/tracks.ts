@@ -64,6 +64,6 @@ export const tracks: readonly Track[] = [
     year: '2025',
     genre: 'Pop',
     format: 'Original',
-    note: 'Original track. Cover art credited to fin.',
+    note: 'Cover art credited to fin.',
   },
 ];
