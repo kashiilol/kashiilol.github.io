@@ -14,6 +14,26 @@ export const soundCloudProfile = 'https://soundcloud.com/kashii-981036167';
 
 export const tracks: readonly Track[] = [
   {
+    title: 'QIK+QIK*QIK+QIK',
+    url: 'https://soundcloud.com/kashii-981036167/qik-qik-qik-qik',
+    artwork: 'https://i1.sndcdn.com/artworks-YU7inpM2Jg81qfaq-opHsQA-t500x500.png',
+    releaseDate: '27 Jul 2026',
+    year: '2026',
+    genre: 'Dance & EDM',
+    format: 'Original',
+    featured: true,
+  },
+  {
+    title: 'TALK TO ME',
+    url: 'https://soundcloud.com/kashii-981036167/talk-to-me',
+    artwork: 'https://i1.sndcdn.com/artworks-M1pZxfZyfNJikS5Y-PRhAfQ-t500x500.jpg',
+    releaseDate: '26 Jul 2026',
+    year: '2026',
+    genre: 'Dance & EDM',
+    format: 'Original',
+    featured: true,
+  },
+  {
     title: 'Time Collapse',
     url: 'https://soundcloud.com/kashii-981036167/time-collapse',
     artwork: 'https://i1.sndcdn.com/artworks-vW9bnV0WBfxK495g-jmpIzg-t500x500.png',
@@ -21,7 +41,7 @@ export const tracks: readonly Track[] = [
     year: '2026',
     genre: 'Dance & EDM',
     format: 'Original',
-    note: 'My latest original electronic release.',
+    note: 'An original electronic release.',
     featured: true,
   },
   {
