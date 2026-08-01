@@ -7,9 +7,9 @@ const sourceUrl = import.meta.env.PUBLIC_SOURCE_URL || 'https://github.com/kashi
 
 <footer class="site-footer">
   <div class="footer-inner">
-    <span>© {year} <a href={siteConfig.soundCloudUrl} target="_blank" rel="noreferrer">kashii</a></span>
-    <span>Made with <a href="https://astro.build/" target="_blank" rel="noreferrer">Astro</a> + <a href="https://webtui.ironclad.sh/" target="_blank" rel="noreferrer">WebTUI</a> by <a href="https://github.com/brainage04" target="_blank" rel="noreferrer">brainage04</a></span>
-    <a href={sourceUrl} target="_blank" rel="noreferrer">Source code</a>
+    <span class="footer-owner">© {year} <a href={siteConfig.soundCloudUrl} target="_blank" rel="noreferrer">kashii</a></span>
+    <span class="footer-credit">Made with <a href="https://astro.build/" target="_blank" rel="noreferrer">Astro</a> + <a href="https://webtui.ironclad.sh/" target="_blank" rel="noreferrer">WebTUI</a> by <a href="https://github.com/brainage04" target="_blank" rel="noreferrer">brainage04</a></span>
+    <a class="footer-source" href={sourceUrl} target="_blank" rel="noreferrer">Source code</a>
   </div>
 </footer>
 
@@ -22,11 +22,24 @@ const sourceUrl = import.meta.env.PUBLIC_SOURCE_URL || 'https://github.com/kashi
   .footer-inner {
     width: min(100% - 1rem, var(--site-footer-width));
     margin-inline: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
     gap: 0.5rem 1rem;
     padding-block: 1rem;
+  }
+
+  .footer-owner {
+    justify-self: start;
+  }
+
+  .footer-credit {
+    justify-self: center;
+    text-align: center;
+  }
+
+  .footer-source {
+    justify-self: end;
   }
 
   a {
@@ -37,12 +50,17 @@ const sourceUrl = import.meta.env.PUBLIC_SOURCE_URL || 'https://github.com/kashi
   a:hover {
     color: var(--accent-soft);
   }
-  @media (max-width: 520px) {
+  @media (max-width: 700px) {
     .footer-inner {
-      display: grid;
+      grid-template-columns: 1fr;
       justify-items: center;
-      justify-content: center;
       text-align: center;
+    }
+
+    .footer-owner,
+    .footer-credit,
+    .footer-source {
+      justify-self: center;
     }
   }
 
