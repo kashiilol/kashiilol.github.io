@@ -23,8 +23,6 @@ jobs:
 
       - name: Install, build, and upload site
         uses: withastro/action@v6
-        env:
-          PUBLIC_SOURCE_URL: https://github.com/${{ github.repository }}
         with:
           package-manager: npm
 

@@ -12,7 +12,14 @@ const playerUrl = `https://w.soundcloud.com/player/?url=${encodeURIComponent(tra
 
 <section class="featured-player" aria-labelledby="featured-track-title">
   <div class="player-artwork">
-    <Image src={track.artwork} alt={`Artwork for ${track.title}`} width="500" height="500" loading="eager" fetchpriority="high" />
+    <Image
+      src={track.artwork}
+      alt={`Artwork for ${track.title}`}
+      width="500"
+      height="500"
+      loading="eager"
+      fetchpriority="high"
+    />
     <span aria-hidden="true">LATEST / 01</span>
   </div>
   <div class="player-copy">
@@ -31,7 +38,9 @@ const playerUrl = `https://w.soundcloud.com/player/?url=${encodeURIComponent(tra
       >
         <span aria-hidden="true">▶</span> Play latest track
       </button>
-      <a class="action-button action-button--ghost" href={track.url} target="_blank" rel="noreferrer">Open SoundCloud <span aria-hidden="true">↗</span></a>
+      <a class="action-button action-button--ghost" href={track.url} target="_blank" rel="noreferrer"
+        >Open SoundCloud <span aria-hidden="true">↗</span></a
+      >
     </div>
   </div>
   <div class="player-embed" id="featured-player-embed" hidden aria-live="polite"></div>
@@ -84,7 +93,6 @@ const playerUrl = `https://w.soundcloud.com/player/?url=${encodeURIComponent(tra
     justify-items: start;
     padding: clamp(1.25rem, 4vw, 3rem);
   }
-
 
   h1 {
     margin: 0;

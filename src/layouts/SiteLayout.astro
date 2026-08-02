@@ -1,9 +1,7 @@
 ---
-import SiteFooter from '../components/SiteFooter.astro';
-import SiteHeader from '../components/SiteHeader.astro';
+import ShellLayout from '@brainage04/astro-shell/components/SiteLayout.astro';
 import { siteConfig } from '../site.config';
-import { withBase } from '../lib/withBase';
-import '../styles/global.css';
+import '../styles/site.css';
 
 export interface Props {
   title: string;
@@ -12,39 +10,24 @@ export interface Props {
 }
 
 const { title, description = siteConfig.description, image = siteConfig.ogImage } = Astro.props;
-const pageTitle = title === 'Home' ? siteConfig.name : `${title} | ${siteConfig.shortName}`;
-const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site) : undefined;
 ---
 
-<!doctype html>
-<html lang="en" data-webtui-theme="dark">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
-    <meta name="theme-color" content="#151515" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content={siteConfig.shortName} />
-    <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={pageTitle} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={image} />
-    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
-    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
-    <link rel="icon" type="image/webp" href={withBase('/kashii-avatar.webp')} />
-    <link rel="preconnect" href="https://i1.sndcdn.com" />
-    <link rel="preconnect" href="https://w.soundcloud.com" />
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-    <a class="skip-link" href="#main">Skip to content</a>
-    <SiteHeader />
-    <main id="main">
-      <slot />
-    </main>
-    <SiteFooter />
-  </body>
-</html>
+<ShellLayout
+  title={title}
+  siteName={siteConfig.shortName}
+  homeTitle={siteConfig.name}
+  navItems={siteConfig.navItems}
+  sourceHref="https://github.com/kashiilol/kashiilol.github.io"
+  description={description}
+  image={image}
+  faviconHref="/kashii-avatar.webp"
+  faviconType="image/webp"
+  themeColor="#111310"
+  preconnectHrefs={['https://i1.sndcdn.com', 'https://w.soundcloud.com']}
+  ownerHref={siteConfig.soundCloudUrl}
+  ownerName="kashii"
+  creatorHref="https://github.com/brainage04"
+  creatorName="brainage04"
+>
+  <slot />
+</ShellLayout>

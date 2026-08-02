@@ -7,27 +7,33 @@ const discordProfileUrl = 'https://discord.com/users/576348645742608387';
 const faqs = [
   {
     question: 'What should I send?',
-    answer: 'A short goal, two or three references, your budget, deadline and anything already recorded. Voice memos and rough demos are useful.',
+    answer:
+      'A short goal, two or three references, your budget, deadline and anything already recorded. Voice memos and rough demos are useful.',
   },
   {
     question: 'Are the listed prices final?',
-    answer: 'They are starting prices in AUD. The final quote reflects scope, turnaround and intended usage, and is confirmed before work starts.',
+    answer:
+      'They are starting prices in AUD. The final quote reflects scope, turnaround and intended usage, and is confirmed before work starts.',
   },
   {
     question: 'Who owns the finished music?',
-    answer: 'Usage rights vary by service. The agreed licence, credits and permitted use will be written into the quote before work starts.',
+    answer:
+      'Usage rights vary by service. The agreed licence, credits and permitted use will be written into the quote before work starts.',
   },
   {
     question: 'How long will it take?',
-    answer: 'Timing depends on the project and my current queue. Include your deadline so I can confirm availability up front.',
+    answer:
+      'Timing depends on the project and my current queue. Include your deadline so I can confirm availability up front.',
   },
   {
     question: 'How does payment work?',
-    answer: 'Payments are arranged through a parent or guardian. Half is due before work starts, and the other half is due after final approval but before the finished files are delivered. Prices and invoices are in AUD; international clients may be charged a conversion fee by their payment provider.',
+    answer:
+      'Payments are arranged through a parent or guardian. Half is due before work starts, and the other half is due after final approval but before the finished files are delivered. Prices and invoices are in AUD; international clients may be charged a conversion fee by their payment provider.',
   },
   {
     question: 'What is the refund policy?',
-    answer: 'If I can’t complete the agreed project, the up-front payment will be refunded. If you cancel after work starts, the up-front payment is not refundable because it covers work already completed.',
+    answer:
+      'If I can’t complete the agreed project, the up-front payment will be refunded. If you cancel after work starts, the up-front payment is not refundable because it covers work already completed.',
   },
 ] as const;
 ---
@@ -37,26 +43,33 @@ const faqs = [
   description="Music production commissions for custom beats, mixing, beat licences and full song production."
 >
   <div class="commissions-page">
-
     <section id="services" class="services-section" aria-labelledby="pricing-title">
       <div class="section-heading">
         <h2 id="pricing-title">Choose a service</h2>
       </div>
 
       <div class="pricing-grid">
-        {services.map((service) => (
-          <article class="price-card" id={service.id}>
-            <div class="price-card__header">
-              <h3>{service.name}</h3>
-              <p class="price"><small>from</small> {service.price}</p>
-            </div>
-            <p class="summary">{service.summary}</p>
-            <ul>
-              {service.includes.map((item) => <li>{item}</li>)}
-            </ul>
-            <a class="action-button service-action" href="#contact" data-service={service.name}>Ask about this service <span aria-hidden="true">→</span></a>
-          </article>
-        ))}
+        {
+          services.map((service) => (
+            <article class="price-card" id={service.id}>
+              <div class="price-card__header">
+                <h3>{service.name}</h3>
+                <p class="price">
+                  <small>from</small> {service.price}
+                </p>
+              </div>
+              <p class="summary">{service.summary}</p>
+              <ul>
+                {service.includes.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+              <a class="action-button service-action" href="#contact" data-service={service.name}>
+                Ask about this service <span aria-hidden="true">→</span>
+              </a>
+            </article>
+          ))
+        }
       </div>
     </section>
 
@@ -65,10 +78,24 @@ const faqs = [
         <h2 id="workflow-title">How commissions work</h2>
       </div>
       <ol class="flow-list">
-        <li><strong>01</strong><div><h3>Send</h3><p>Use the contact details below to send me a short project brief.</p></div></li>
-        <li><strong>02</strong><div><h3>Quote</h3><p>Scope, price, revisions, rights and timing are confirmed in writing.</p></div></li>
-        <li><strong>03</strong><div><h3>Create</h3><p>A first pass is made and shared at the agreed review point.</p></div></li>
-        <li><strong>04</strong><div><h3>Finish</h3><p>Feedback is applied and the approved files are delivered.</p></div></li>
+        <li>
+          <strong>01</strong><div>
+            <h3>Send</h3><p>Use the contact details below to send me a short project brief.</p>
+          </div>
+        </li>
+        <li>
+          <strong>02</strong><div>
+            <h3>Quote</h3><p>Scope, price, revisions, rights and timing are confirmed in writing.</p>
+          </div>
+        </li>
+        <li>
+          <strong>03</strong><div>
+            <h3>Create</h3><p>A first pass is made and shared at the agreed review point.</p>
+          </div>
+        </li>
+        <li>
+          <strong>04</strong><div><h3>Finish</h3><p>Feedback is applied and the approved files are delivered.</p></div>
+        </li>
       </ol>
     </section>
 
@@ -76,8 +103,20 @@ const faqs = [
       <div class="contact-primary">
         <h2 id="contact-title">Contact</h2>
         <dl>
-          <div><dt>Discord</dt><dd><a class="action-button contact-action" href={discordProfileUrl} target="_blank" rel="noreferrer">helpimdead111 <span aria-hidden="true">↗</span></a></dd></div>
-          <div><dt>Also on</dt><dd><a class="action-button contact-action" href={soundCloudProfile} target="_blank" rel="noreferrer">SoundCloud <span aria-hidden="true">↗</span></a></dd></div>
+          <div>
+            <dt>Discord</dt><dd>
+              <a class="action-button contact-action" href={discordProfileUrl} target="_blank" rel="noreferrer"
+                >helpimdead111 <span aria-hidden="true">↗</span></a
+              >
+            </dd>
+          </div>
+          <div>
+            <dt>Also on</dt><dd>
+              <a class="action-button contact-action" href={soundCloudProfile} target="_blank" rel="noreferrer"
+                >SoundCloud <span aria-hidden="true">↗</span></a
+              >
+            </dd>
+          </div>
         </dl>
       </div>
 
@@ -89,7 +128,8 @@ const faqs = [
               <p>Copy this and replace the bracketed details.</p>
               <button type="button" id="copy-template">Copy template</button>
             </div>
-            <pre id="message-template">Hi, I’m [your name].
+            <pre
+              id="message-template">Hi, I’m [your name].
 
 Service: [e.g. custom beat]
 Project: [what you want made]
@@ -126,12 +166,14 @@ Anything else I should know: I have the vocals recorded and would also like an i
         <h2 id="faq-title">Q&A</h2>
       </div>
       <div class="faq-list">
-        {faqs.map((faq) => (
-          <article class="faq-item">
-            <h3>{faq.question}</h3>
-            <p>{faq.answer}</p>
-          </article>
-        ))}
+        {
+          faqs.map((faq) => (
+            <article class="faq-item">
+              <h3>{faq.question}</h3>
+              <p>{faq.answer}</p>
+            </article>
+          ))
+        }
       </div>
     </section>
   </div>
@@ -144,9 +186,6 @@ Anything else I should know: I have the vocals recorded and would also like an i
     display: grid;
     gap: clamp(4.5rem, 11vw, 8rem);
   }
-
-
-
 
   .section-heading h2 {
     margin: 0;
@@ -170,7 +209,9 @@ Anything else I should know: I have the vocals recorded and would also like an i
     border-block-start: 1px solid var(--border-strong);
     background: var(--surface-raised);
     box-shadow: var(--shadow-soft);
-    transition: translate 180ms ease, border-color 180ms ease;
+    transition:
+      translate 180ms ease,
+      border-color 180ms ease;
   }
 
   .price-card:hover,
@@ -231,7 +272,6 @@ Anything else I should know: I have the vocals recorded and would also like an i
     color: var(--accent-soft);
     font-family: var(--font-display);
   }
-
 
   .service-action {
     width: 100%;
@@ -299,7 +339,6 @@ Anything else I should know: I have the vocals recorded and would also like an i
     font-size: clamp(2rem, 5vw, 3rem);
     line-height: 1;
   }
-
 
   .contact-primary dl {
     width: 100%;

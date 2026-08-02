@@ -1,6 +1,6 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
-import { withBase } from '../lib/withBase';
+import { withBase } from '@brainage04/astro-shell/withBase';
 ---
 
 <SiteLayout title="Not found" description="The requested kashii portfolio page could not be found.">
@@ -48,14 +48,34 @@ import { withBase } from '../lib/withBase';
     animation: pulse 1.8s ease-in-out infinite alternate;
   }
 
-  .equalizer span:nth-child(1) { --level: 32%; animation-delay: -0.2s; }
-  .equalizer span:nth-child(2) { --level: 68%; animation-delay: -0.9s; }
-  .equalizer span:nth-child(3) { --level: 46%; animation-delay: -0.5s; }
-  .equalizer span:nth-child(4) { --level: 100%; animation-delay: -1.3s; }
-  .equalizer span:nth-child(5) { --level: 58%; animation-delay: -0.7s; }
-  .equalizer span:nth-child(6) { --level: 78%; animation-delay: -1.1s; }
-  .equalizer span:nth-child(7) { --level: 38%; animation-delay: -0.35s; }
-
+  .equalizer span:nth-child(1) {
+    --level: 32%;
+    animation-delay: -0.2s;
+  }
+  .equalizer span:nth-child(2) {
+    --level: 68%;
+    animation-delay: -0.9s;
+  }
+  .equalizer span:nth-child(3) {
+    --level: 46%;
+    animation-delay: -0.5s;
+  }
+  .equalizer span:nth-child(4) {
+    --level: 100%;
+    animation-delay: -1.3s;
+  }
+  .equalizer span:nth-child(5) {
+    --level: 58%;
+    animation-delay: -0.7s;
+  }
+  .equalizer span:nth-child(6) {
+    --level: 78%;
+    animation-delay: -1.1s;
+  }
+  .equalizer span:nth-child(7) {
+    --level: 38%;
+    animation-delay: -0.35s;
+  }
 
   h1 {
     max-width: 14ch;
@@ -65,13 +85,15 @@ import { withBase } from '../lib/withBase';
     letter-spacing: -0.07em;
   }
 
-
   .hero-actions {
     padding-block-start: 0.5rem;
   }
 
   @keyframes pulse {
-    to { scale: 1 0.55; opacity: 0.62; }
+    to {
+      scale: 1 0.55;
+      opacity: 0.62;
+    }
   }
 
   @media (max-width: 420px) {

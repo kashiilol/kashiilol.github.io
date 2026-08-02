@@ -3,14 +3,13 @@ import ProfileCard from '../components/ProfileCard.astro';
 import TrackCard from '../components/TrackCard.astro';
 import { tracks } from '../data/tracks';
 import SiteLayout from '../layouts/SiteLayout.astro';
-import { withBase } from '../lib/withBase';
+import { withBase } from '@brainage04/astro-shell/withBase';
 
 const featuredTracks = tracks.filter((track) => track.featured).slice(0, 3);
 ---
 
 <SiteLayout title="Home">
   <div class="site-stack home-stack">
-
     <ProfileCard />
 
     <section aria-labelledby="featured-title">
@@ -22,7 +21,6 @@ const featuredTracks = tracks.filter((track) => track.featured).slice(0, 3);
         {featuredTracks.map((track, index) => <TrackCard track={track} index={index} priority={index === 0} />)}
       </div>
     </section>
-
   </div>
 </SiteLayout>
 

@@ -5,8 +5,8 @@ export const siteConfig = {
   soundCloudUrl: 'https://soundcloud.com/kashii-981036167',
   ogImage: 'https://i1.sndcdn.com/avatars-xorNaEnKWzv6gwil-PO8YFQ-t500x500.jpg',
   navItems: [
-    { label: 'Home', href: '/' },
-    { label: 'Music', href: '/projects/' },
-    { label: 'Commissions', href: '/commissions/' },
+    { name: 'Home', href: '/' },
+    { name: 'Music', href: '/projects/' },
+    { name: 'Commissions', href: '/commissions/' },
   ],
 } as const;

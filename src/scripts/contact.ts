@@ -9,10 +9,10 @@ const copyText = async (text: string, label: string) => {
     await navigator.clipboard.writeText(text);
     if (statusOutput) statusOutput.textContent = `${label} copied to clipboard.`;
   } catch {
-    if (statusOutput) statusOutput.textContent = `Couldn’t copy automatically. Select the ${label.toLowerCase()} above.`;
+    if (statusOutput)
+      statusOutput.textContent = `Couldn’t copy automatically. Select the ${label.toLowerCase()} above.`;
   }
 };
-
 
 serviceLinks.forEach((link) => {
   link.addEventListener('click', () => {

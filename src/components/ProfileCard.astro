@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import { siteConfig } from '../site.config';
-import { withBase } from '../lib/withBase';
+import { withBase } from '@brainage04/astro-shell/withBase';
 
 const discordProfileUrl = 'https://discord.com/users/576348645742608387';
 ---
@@ -48,8 +48,7 @@ const discordProfileUrl = 'https://discord.com/users/576348645742608387';
     padding: clamp(1.25rem, 3vw, 2rem);
     border: 1px solid var(--border-subtle);
     background:
-      linear-gradient(110deg, color-mix(in srgb, var(--accent) 9%, transparent), transparent 52%),
-      var(--surface-raised);
+      linear-gradient(110deg, color-mix(in srgb, var(--accent) 9%, transparent), transparent 52%), var(--surface-raised);
     box-shadow: var(--shadow-soft);
   }
 
@@ -88,13 +87,11 @@ const discordProfileUrl = 'https://discord.com/users/576348645742608387';
     object-fit: cover;
   }
 
-
   .profile-copy {
     min-width: 0;
     display: grid;
     gap: 0.75rem;
   }
-
 
   .name-row {
     display: flex;
@@ -159,7 +156,9 @@ const discordProfileUrl = 'https://discord.com/users/576348645742608387';
     max-width: none;
     object-fit: contain;
     filter: grayscale(1) brightness(1.7);
-    transition: filter 160ms ease, scale 160ms ease;
+    transition:
+      filter 160ms ease,
+      scale 160ms ease;
   }
 
   .socials a:hover img {

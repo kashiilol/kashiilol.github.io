@@ -13,14 +13,9 @@ const spotifyPlaylistUrl = 'https://open.spotify.com/playlist/4627RK8bmbXSTGxg0w
 const spotifyEmbedUrl = 'https://open.spotify.com/embed/playlist/4627RK8bmbXSTGxg0w9MDf?utm_source=generator';
 ---
 
-<SiteLayout
-  title="Music"
-  description="Listen to my electronic tracks and sample flips."
-  image={latestTrack.artwork}
->
+<SiteLayout title="Music" description="Listen to my electronic tracks and sample flips." image={latestTrack.artwork}>
   <div class="music-stack">
     <FeaturedPlayer track={latestTrack} />
-
 
     <section id="originals" class="track-section" aria-labelledby="originals-title">
       <div class="section-heading">
@@ -30,10 +25,12 @@ const spotifyEmbedUrl = 'https://open.spotify.com/embed/playlist/4627RK8bmbXSTGx
         <p>{uploadCount(originalTracks.length)}</p>
       </div>
       <div class="track-grid">
-        {originalTracks.map((track) => {
-          const index = trackIndex(track);
-          return <TrackCard track={track} index={index} priority={index < 3} />;
-        })}
+        {
+          originalTracks.map((track) => {
+            const index = trackIndex(track);
+            return <TrackCard track={track} index={index} priority={index < 3} />;
+          })
+        }
       </div>
     </section>
 
@@ -45,10 +42,12 @@ const spotifyEmbedUrl = 'https://open.spotify.com/embed/playlist/4627RK8bmbXSTGx
         <p>{uploadCount(reinterpretations.length)}</p>
       </div>
       <div class="track-grid track-grid--two">
-        {reinterpretations.map((track) => {
-          const index = trackIndex(track);
-          return <TrackCard track={track} index={index} priority={index < 3} />;
-        })}
+        {
+          reinterpretations.map((track) => {
+            const index = trackIndex(track);
+            return <TrackCard track={track} index={index} priority={index < 3} />;
+          })
+        }
       </div>
     </section>
 
@@ -67,8 +66,7 @@ const spotifyEmbedUrl = 'https://open.spotify.com/embed/playlist/4627RK8bmbXSTGx
           height="352"
           loading="lazy"
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          allowfullscreen
-        ></iframe>
+          allowfullscreen></iframe>
         <a class="action-button action-button--ghost" href={spotifyPlaylistUrl} target="_blank" rel="noreferrer">
           Open kashii*inspo on Spotify <span aria-hidden="true">↗</span>
         </a>
@@ -117,7 +115,6 @@ const spotifyEmbedUrl = 'https://open.spotify.com/embed/playlist/4627RK8bmbXSTGx
       width: min(100%, calc((100% - 1.35rem) / 2));
     }
   }
-
 
   @media (max-width: 640px) {
     .track-grid--two {
