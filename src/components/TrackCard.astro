@@ -44,9 +44,6 @@ const { track, priority = false, index } = Astro.props;
     </div>
     <h2><a href={track.url} target="_blank" rel="noreferrer">{track.title}</a></h2>
     {track.note && <p>{track.note}</p>}
-    <a class="track-link" href={track.url} target="_blank" rel="noreferrer">
-      Play on SoundCloud <span aria-hidden="true">↗</span>
-    </a>
   </div>
 </article>
 
@@ -161,22 +158,17 @@ const { track, priority = false, index } = Astro.props;
   }
 
   h2 a {
-    color: var(--foreground0);
+    color: var(--accent-soft);
     text-decoration-thickness: 1px;
   }
 
+  h2 a:hover {
+    color: var(--foreground0);
+  }
   p {
     margin-block: 0.7rem 0;
     color: var(--foreground1);
     font-size: 0.9rem;
-  }
-
-  .track-link {
-    margin-block-start: auto;
-    padding-block-start: 1rem;
-    color: var(--accent-soft);
-    font-size: 0.86rem;
-    font-weight: 700;
   }
 
   @media (max-width: 520px) {

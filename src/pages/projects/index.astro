@@ -9,7 +9,6 @@ const originalTracks = tracks.filter((track) => track.format === 'Original');
 const reinterpretations = tracks.filter((track) => track.format !== 'Original');
 const trackIndex = (track: (typeof tracks)[number]) => tracks.indexOf(track);
 const uploadCount = (count: number) => `${count} ${count === 1 ? 'upload' : 'uploads'}`;
-const spotifyPlaylistUrl = 'https://open.spotify.com/playlist/4627RK8bmbXSTGxg0w9MDf';
 const spotifyEmbedUrl = 'https://open.spotify.com/embed/playlist/4627RK8bmbXSTGxg0w9MDf?utm_source=generator';
 ---
 
@@ -67,9 +66,6 @@ const spotifyEmbedUrl = 'https://open.spotify.com/embed/playlist/4627RK8bmbXSTGx
           loading="lazy"
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           allowfullscreen></iframe>
-        <a class="action-button action-button--ghost" href={spotifyPlaylistUrl} target="_blank" rel="noreferrer">
-          Open kashii*inspo on Spotify <span aria-hidden="true">↗</span>
-        </a>
       </div>
     </section>
   </div>

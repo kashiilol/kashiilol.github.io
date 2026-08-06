@@ -15,7 +15,7 @@ const featuredTracks = tracks.filter((track) => track.featured).slice(0, 3);
     <section aria-labelledby="featured-title">
       <div class="section-heading">
         <h2 id="featured-title">Recent tracks</h2>
-        <a href={withBase('/projects/')}>View all tracks <span aria-hidden="true">→</span></a>
+        <a href={withBase('/projects/')}>View all tracks</a>
       </div>
       <div class="track-grid">
         {featuredTracks.map((track, index) => <TrackCard track={track} index={index} priority={index === 0} />)}
