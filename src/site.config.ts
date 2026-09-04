@@ -10,7 +10,7 @@ export const siteConfig = {
     { name: 'Commissions', href: '/commissions/', match: '/commissions/', activeMode: 'prefix' },
   ],
   sourceHref: 'https://github.com/kashiilol/kashiilol.github.io',
-  faviconHref: '/kashii-avatar.webp',
+  faviconHref: '/pfp.webp',
   faviconType: 'image/webp',
   image: 'https://i1.sndcdn.com/avatars-xorNaEnKWzv6gwil-PO8YFQ-t500x500.jpg',
   themeColor: '#111310',
