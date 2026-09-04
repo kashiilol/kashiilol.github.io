@@ -12,8 +12,8 @@ const discordProfileUrl = 'https://discord.com/users/576348645742608387';
       class="avatar"
       src={withBase('/pfp.webp')}
       alt="kashii's Discord profile artwork"
-      width="749"
-      height="749"
+      width="400"
+      height="400"
       loading="eager"
       fetchpriority="high"
     />
@@ -23,10 +23,10 @@ const discordProfileUrl = 'https://discord.com/users/576348645742608387';
       <h1 id="profile-title">kashii</h1>
       <div class="socials" aria-label="Social profiles">
         <a href={siteConfig.ownerHref} title="SoundCloud" aria-label="SoundCloud" target="_blank" rel="noreferrer">
-          <img src={withBase('/assets/socials/soundcloud.svg')} alt="" width="24" height="24" />
+          <img src={withBase('/icons/soundcloud.svg')} alt="" width="24" height="24" />
         </a>
         <a href={discordProfileUrl} title="Discord" aria-label="Discord" target="_blank" rel="noreferrer">
-          <img src={withBase('/assets/socials/discord.png')} alt="" width="619" height="469" />
+          <img src={withBase('/icons/discord.svg')} alt="" width="64" height="48" />
         </a>
       </div>
     </div>
@@ -155,14 +155,10 @@ const discordProfileUrl = 'https://discord.com/users/576348645742608387';
     height: var(--social-icon-height);
     max-width: none;
     object-fit: contain;
-    filter: grayscale(1) brightness(1.7);
-    transition:
-      filter 160ms ease,
-      scale 160ms ease;
+    transition: scale 160ms ease;
   }
 
   .socials a:hover img {
-    filter: none;
     scale: 1.06;
   }
 
