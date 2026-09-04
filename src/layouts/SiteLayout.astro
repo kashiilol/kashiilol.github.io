@@ -9,25 +9,9 @@ export interface Props {
   image?: string;
 }
 
-const { title, description = siteConfig.description, image = siteConfig.ogImage } = Astro.props;
+const { title, description = siteConfig.description, image = siteConfig.image } = Astro.props;
 ---
 
-<ShellLayout
-  title={title}
-  siteName={siteConfig.shortName}
-  homeTitle={siteConfig.name}
-  navItems={siteConfig.navItems}
-  sourceHref="https://github.com/kashiilol/kashiilol.github.io"
-  description={description}
-  image={image}
-  faviconHref="/kashii-avatar.webp"
-  faviconType="image/webp"
-  themeColor="#111310"
-  preconnectHrefs={['https://i1.sndcdn.com', 'https://w.soundcloud.com']}
-  ownerHref={siteConfig.soundCloudUrl}
-  ownerName="kashii"
-  creatorHref="https://github.com/brainage04"
-  creatorName="brainage04"
->
+<ShellLayout {...siteConfig} title={title} description={description} image={image}>
   <slot />
 </ShellLayout>

@@ -1,4 +1,4 @@
-:root {
+html:root {
   --background0: #111310;
   --background1: #181b17;
   --background2: #23271f;
@@ -49,18 +49,6 @@ iframe {
   border: 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-nav,
-button,
-.section-heading,
-.site-badge,
-.site-footer {
-  font-family: var(--font-display);
-}
-
 button,
 input,
 label,
@@ -106,13 +94,6 @@ textarea::placeholder {
   gap: clamp(0.9rem, 2vw, 1.35rem);
 }
 
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem;
-}
-
 .section-heading {
   display: flex;
   flex-wrap: wrap;
@@ -153,49 +134,6 @@ textarea::placeholder {
   --badge-text: var(--accent-soft);
   color: var(--badge-text);
   font-weight: 700;
-}
-
-.action-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.45rem;
-  min-height: 2.75rem;
-  border: 1px solid color-mix(in srgb, var(--accent) 68%, var(--foreground2));
-  background: var(--accent);
-  color: var(--background0);
-  padding: 0.65rem 0.9rem;
-  font: 700 0.9rem/1 var(--font-display);
-  text-decoration: none;
-  transition:
-    translate 160ms ease,
-    border-color 160ms ease,
-    background-color 160ms ease,
-    color 160ms ease;
-}
-
-.action-button--ghost {
-  border-color: var(--control-border);
-  background: color-mix(in srgb, var(--background1) 74%, transparent);
-  color: var(--foreground0);
-}
-
-.action-button:not(:disabled):not(.disabled):hover {
-  translate: 0 -0.1rem;
-  border-color: var(--accent-soft);
-  background: var(--accent-soft);
-  color: var(--background0);
-}
-
-.action-button--ghost:not(:disabled):not(.disabled):hover {
-  background: color-mix(in srgb, var(--accent) 15%, var(--background2));
-  color: var(--foreground0);
-}
-
-.action-button:disabled,
-.action-button.disabled {
-  opacity: 0.48;
-  pointer-events: none;
 }
 
 .muted {
