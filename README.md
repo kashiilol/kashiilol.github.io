@@ -1,4 +1,4 @@
-# kashii-music.github.io
+# kashiilol.github.io
 
 Astro portfolio for Brisbane producer kashii, featuring original music, reinterpretations, embedded SoundCloud players, and commission information.
 
