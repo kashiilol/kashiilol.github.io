@@ -12,7 +12,7 @@ export const siteConfig = {
   sourceHref: 'https://github.com/kashiilol/kashiilol.github.io',
   faviconHref: '/pfp.webp',
   faviconType: 'image/webp',
-  image: 'https://i1.sndcdn.com/avatars-xorNaEnKWzv6gwil-PO8YFQ-t500x500.jpg',
+  image: '/pfp.webp',
   themeColor: '#111310',
   preconnectHrefs: ['https://i1.sndcdn.com', 'https://w.soundcloud.com'],
   ownerHref: 'https://soundcloud.com/kashii-981036167',
