@@ -50,9 +50,9 @@ const playerUrl = `https://w.soundcloud.com/player/?url=${encodeURIComponent(tra
     overflow: hidden;
     border: 1px solid var(--border-subtle);
     background:
-      linear-gradient(112deg, color-mix(in srgb, var(--accent) 12%, transparent), transparent 56%),
+      linear-gradient(112deg, color-mix(in srgb, var(--accent-secondary) 12%, transparent), transparent 56%),
       var(--surface-raised);
-    box-shadow: var(--shadow-soft);
+    box-shadow: var(--shadow-raised);
   }
 
   .player-artwork {
@@ -79,7 +79,7 @@ const playerUrl = `https://w.soundcloud.com/player/?url=${encodeURIComponent(tra
     z-index: 1;
     inset: auto auto 0.9rem 1rem;
     color: white;
-    font: 700 0.7rem/1 var(--font-display);
+    font: 700 0.7rem/1 var(--font-mono);
     letter-spacing: 0.12em;
   }
 
@@ -101,7 +101,7 @@ const playerUrl = `https://w.soundcloud.com/player/?url=${encodeURIComponent(tra
   .track-meta {
     margin-block: 0.9rem 0;
     color: var(--foreground2);
-    font: 0.8rem/1.4 var(--font-display);
+    font: 0.8rem/1.4 var(--font-mono);
   }
 
   .track-note {

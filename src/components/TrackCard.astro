@@ -17,7 +17,7 @@ const { track, priority = false, index } = Astro.props;
     href={track.url}
     target="_blank"
     rel="noreferrer"
-    aria-label={`Listen to ${track.title} on SoundCloud`}
+    aria-label={`Listen to ${track.title} on SoundCloud (opens in new tab)`}
   >
     <Image
       src={track.artwork}
@@ -42,7 +42,11 @@ const { track, priority = false, index } = Astro.props;
       <span>{track.genre}</span>
       <span>{track.year}</span>
     </div>
-    <h2><a href={track.url} target="_blank" rel="noreferrer">{track.title}</a></h2>
+    <h2>
+      <a href={track.url} target="_blank" rel="noreferrer"
+        >{track.title}<span class="sr-only"> (opens in new tab)</span></a
+      >
+    </h2>
     {track.note && <p>{track.note}</p>}
   </div>
 </article>
@@ -54,7 +58,7 @@ const { track, priority = false, index } = Astro.props;
     grid-template-rows: auto 1fr;
     border-color: var(--panel-border);
     background: var(--panel-bg);
-    box-shadow: var(--panel-shadow);
+    box-shadow: var(--shadow-raised);
     overflow: hidden;
     transition:
       translate 180ms ease,
@@ -65,7 +69,7 @@ const { track, priority = false, index } = Astro.props;
   .track-card:hover,
   .track-card:focus-within {
     translate: 0 -0.25rem;
-    border-color: color-mix(in srgb, var(--accent) 72%, var(--foreground2));
+    border-color: color-mix(in srgb, var(--accent-secondary) 72%, var(--foreground2));
   }
 
   .track-artwork {
@@ -158,7 +162,7 @@ const { track, priority = false, index } = Astro.props;
   }
 
   h2 a {
-    color: var(--accent-soft);
+    color: var(--accent-primary);
     text-decoration-thickness: 1px;
   }
 
@@ -174,14 +178,6 @@ const { track, priority = false, index } = Astro.props;
   @media (max-width: 520px) {
     .track-body {
       padding: 0.9rem;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .track-card,
-    .track-artwork img,
-    .play-mark {
-      transition: none;
     }
   }
 </style>

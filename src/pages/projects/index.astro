@@ -2,14 +2,14 @@
 import FeaturedPlayer from '../../components/FeaturedPlayer.astro';
 import TrackCard from '../../components/TrackCard.astro';
 import { tracks } from '../../data/tracks';
-import SiteLayout from '../../layouts/SiteLayout.astro';
+import SiteLayout from '@brainage04/astro-shell/components/SiteLayout.astro';
 
 const latestTrack = tracks[0]!;
 const originalTracks = tracks.filter((track) => track.format === 'Original');
 const reinterpretations = tracks.filter((track) => track.format !== 'Original');
 const trackIndex = (track: (typeof tracks)[number]) => tracks.indexOf(track);
 const uploadCount = (count: number) => `${count} ${count === 1 ? 'upload' : 'uploads'}`;
-const spotifyEmbedUrl = 'https://open.spotify.com/embed/playlist/4627RK8bmbXSTGxg0w9MDf?utm_source=generator';
+const spotifyPlaylistId = '4627RK8bmbXSTGxg0w9MDf';
 ---
 
 <SiteLayout title="Music" description="Listen to my electronic tracks and sample flips." image={latestTrack.artwork}>
@@ -58,14 +58,21 @@ const spotifyEmbedUrl = 'https://open.spotify.com/embed/playlist/4627RK8bmbXSTGx
         <p>Spotify</p>
       </div>
       <div class="playlist-panel">
-        <iframe
-          src={spotifyEmbedUrl}
-          title="Spotify playlist: kashii*inspo"
-          width="100%"
-          height="352"
-          loading="lazy"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          allowfullscreen></iframe>
+        <div
+          class="spotify-embed"
+          id="spotify-embed"
+          data-spotify-uri={`spotify:playlist:${spotifyPlaylistId}`}
+          data-spotify-title="Spotify playlist: kashii*inspo"
+        >
+          <a
+            data-spotify-target
+            href={`https://open.spotify.com/playlist/${spotifyPlaylistId}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Open kashii*inspo on Spotify<span class="sr-only"> (opens in new tab)</span>
+          </a>
+        </div>
       </div>
     </section>
   </div>
@@ -100,7 +107,12 @@ const spotifyEmbedUrl = 'https://open.spotify.com/embed/playlist/4627RK8bmbXSTGx
     gap: 1rem;
   }
 
-  .playlist-panel iframe {
+  .spotify-embed {
+    width: 100%;
+    min-height: 352px;
+  }
+
+  .spotify-embed :global(iframe) {
     display: block;
     border: 0;
     border-radius: 0.75rem;

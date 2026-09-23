@@ -5,9 +5,9 @@ export const siteConfig = {
   homeTitle: "kashii's website",
   description: 'I’m kashii, a music producer based in Brisbane, Queensland, Australia who makes EDM and pop music.',
   navItems: [
-    { name: 'Home', href: '/', match: '/', activeMode: 'exact' },
-    { name: 'Music', href: '/projects/', match: '/projects/', activeMode: 'prefix' },
-    { name: 'Commissions', href: '/commissions/', match: '/commissions/', activeMode: 'prefix' },
+    { name: 'Home', href: '/' },
+    { name: 'Music', href: '/projects/', activeMode: 'prefix' },
+    { name: 'Commissions', href: '/commissions/', activeMode: 'prefix' },
   ],
   sourceHref: 'https://github.com/kashiilol/kashiilol.github.io',
   faviconHref: '/pfp.webp',

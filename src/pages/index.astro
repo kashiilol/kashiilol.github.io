@@ -1,16 +1,24 @@
 ---
-import ProfileCard from '../components/ProfileCard.astro';
-import TrackCard from '../components/TrackCard.astro';
-import { tracks } from '../data/tracks';
-import SiteLayout from '../layouts/SiteLayout.astro';
+import ProfileCard from '@brainage04/astro-shell/components/ProfileCard.astro';
+import SiteLayout from '@brainage04/astro-shell/components/SiteLayout.astro';
 import { withBase } from '@brainage04/astro-shell/withBase';
+import TrackCard from '../components/TrackCard.astro';
+import { socials } from '../data/socials';
+import { tracks } from '../data/tracks';
 
 const featuredTracks = tracks.filter((track) => track.featured).slice(0, 3);
 ---
 
-<SiteLayout title="Home">
+<SiteLayout>
   <div class="site-stack home-stack">
-    <ProfileCard />
+    <ProfileCard name="kashii" avatar="/pfp.webp" avatarAlt="kashii's Discord profile artwork" socials={socials}>
+      <p class="lead">I make electronic dance and pop music from Brisbane, Queensland, Australia.</p>
+      <p class="availability"><span aria-hidden="true"></span> Open for commissions</p>
+      <div class="hero-actions">
+        <a class="action-button" href={withBase('/projects/')}>Listen to tracks</a>
+        <a class="action-button action-button--ghost" href={withBase('/commissions/')}>Book a commission</a>
+      </div>
+    </ProfileCard>
 
     <section aria-labelledby="featured-title">
       <div class="section-heading">
@@ -29,9 +37,68 @@ const featuredTracks = tracks.filter((track) => track.featured).slice(0, 3);
     gap: clamp(2rem, 5vw, 4rem);
   }
 
+  .home-stack :global(.profile-card) {
+    --profile-avatar-column: minmax(7rem, 11rem);
+    --profile-gap: clamp(1.5rem, 5vw, 3rem);
+    --profile-background:
+      linear-gradient(110deg, color-mix(in srgb, var(--accent-secondary) 9%, transparent), transparent 52%),
+      var(--surface-raised);
+    --profile-copy-gap: 0.75rem;
+    --profile-name-gap: 0.55rem 1.2rem;
+    --profile-name-size: clamp(2.1rem, 5vw, 3.6rem);
+    --profile-name-leading: 0.92;
+    --profile-name-tracking: -0.06em;
+    --profile-socials-offset: 0;
+  }
+
+  .lead {
+    max-width: 58ch;
+    margin: 0;
+    color: var(--foreground1);
+    font-size: clamp(1rem, 1.5vw, 1.12rem);
+  }
+
+  .availability {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin: 0;
+    color: var(--accent-primary);
+    font: 700 0.78rem/1.2 var(--font-mono);
+    text-transform: uppercase;
+  }
+
+  .availability span {
+    width: 0.55rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--accent-primary);
+    box-shadow: 0 0 0.8rem color-mix(in srgb, var(--accent-primary) 72%, transparent);
+  }
+
+  .hero-actions {
+    padding-block-start: 0.35rem;
+  }
+
+  @media (max-width: 700px) {
+    .hero-actions {
+      justify-content: center;
+    }
+
+    .lead {
+      margin-inline: auto;
+    }
+  }
+
   @media (max-width: 640px) {
     .home-stack {
       gap: 2.25rem;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .hero-actions > a {
+      flex: 1 1 100%;
     }
   }
 </style>
