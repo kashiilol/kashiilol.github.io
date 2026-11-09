@@ -1,5 +1,6 @@
 ---
 import SiteLayout from '@brainage04/astro-shell/components/SiteLayout.astro';
+import { audNote, baseCurrency, conversionNote, currencies, formatPrice } from '../../data/currency';
 import { services } from '../../data/services';
 import { discordProfileUrl } from '../../data/socials';
 import { soundCloudProfile } from '../../data/tracks';
@@ -13,7 +14,7 @@ const faqs = [
   {
     question: 'Are the listed prices final?',
     answer:
-      'They are starting prices in AUD. The final quote reflects scope, turnaround and intended usage, and is confirmed before work starts.',
+      'They are starting prices in AUD; other currencies are estimates. The final quote reflects scope, turnaround and intended usage, and is confirmed before work starts.',
   },
   {
     question: 'Who owns the finished music?',
@@ -36,6 +37,10 @@ const faqs = [
       'If I can’t complete the agreed project, the up-front payment will be refunded. If you cancel after work starts, the up-front payment is not refundable because it covers work already completed.',
   },
 ] as const;
+
+// The longest note the page can show, rendered invisibly under the live one so that switching currency never moves
+// the cards below it.
+const longestNote = conversionNote('NZD', '2026-09-28');
 ---
 
 <SiteLayout
@@ -46,6 +51,26 @@ const faqs = [
     <section id="services" class="services-section" aria-labelledby="pricing-title">
       <div class="section-heading">
         <h2 id="pricing-title">Choose a service</h2>
+        <div class="currency-picker">
+          <label for="price-currency">Prices in</label>
+          {
+            /* A native select, as on the Skyport Minigames site: the system draws the option list, so it always fits
+               the screen. Disabled until src/scripts/currency.ts can convert prices. */
+          }
+          <select id="price-currency" name="currency" autocomplete="off" disabled>
+            {
+              Object.entries(currencies).map(([code, currency]) => (
+                <option value={code} selected={code === baseCurrency}>
+                  {currency.label}
+                </option>
+              ))
+            }
+          </select>
+        </div>
+      </div>
+      <div class="currency-note">
+        <p id="price-note" aria-live="polite">{audNote}</p>
+        <p class="currency-note-sizer" aria-hidden="true">{longestNote}</p>
       </div>
 
       <div class="pricing-grid">
@@ -55,7 +80,7 @@ const faqs = [
               <div class="price-card__header">
                 <h3>{service.name}</h3>
                 <p class="price">
-                  <small>from</small> {service.price}
+                  <small>from</small> <span data-aud={service.aud}>{formatPrice(service.aud)}</span>
                 </p>
               </div>
               <p class="summary">{service.summary}</p>
@@ -179,6 +204,7 @@ Anything else I should know: I have the vocals recorded and would also like an i
   </div>
 
   <script src="../../scripts/contact.ts"></script>
+  <script src="../../scripts/currency.ts"></script>
 </SiteLayout>
 
 <style>
@@ -192,6 +218,52 @@ Anything else I should know: I have the vocals recorded and would also like an i
     font-size: clamp(1.9rem, 5vw, 3rem);
     line-height: 1;
     letter-spacing: -0.045em;
+  }
+
+  .currency-picker {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .currency-picker label {
+    color: var(--foreground2);
+    /* No text-transform: Chromium passes it into the accessible name ("PRICES IN"). */
+    font: 0.8rem/1.3 var(--font-mono);
+  }
+
+  /* Sized to its options rather than the full width the site gives form fields. */
+  .currency-picker select {
+    width: auto;
+    padding-block: 0.4rem;
+    cursor: pointer;
+  }
+
+  .currency-picker select:disabled {
+    cursor: default;
+  }
+
+  .currency-picker select:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 1px;
+  }
+
+  /* The live note and an invisible copy of the longest note share one grid cell, which keeps the note's height fixed. */
+  .currency-note {
+    display: grid;
+    margin-block: -0.4rem 1.2rem;
+    color: var(--foreground2);
+    font-size: 0.84rem;
+  }
+
+  .currency-note > p {
+    grid-area: 1 / 1;
+    max-width: none;
+    margin: 0;
+  }
+
+  .currency-note-sizer {
+    visibility: hidden;
   }
 
   .pricing-grid {
