@@ -14,6 +14,7 @@ export const siteConfig = {
   faviconType: 'image/webp',
   image: '/pfp.webp',
   themeColor: '#111310',
+  themeColorLight: '#f3f6ee',
   preconnectHrefs: ['https://i1.sndcdn.com', 'https://w.soundcloud.com'],
   ownerHref: 'https://soundcloud.com/kashii-981036167',
   ownerName: 'kashii',

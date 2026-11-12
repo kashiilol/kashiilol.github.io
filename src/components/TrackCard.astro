@@ -113,7 +113,8 @@ const { track, priority = false, index } = Astro.props;
     aspect-ratio: 1;
     padding-inline-start: 0.15rem;
     border: 1px solid color-mix(in srgb, white 72%, transparent);
-    background: color-mix(in srgb, var(--background0) 62%, transparent);
+    /* Over the artwork, so it stays dark in both themes. */
+    background: color-mix(in srgb, #111310 62%, transparent);
     color: white;
     border-radius: 50%;
     opacity: 0;

@@ -1,20 +1,21 @@
+/* Moss green, light and dark: a pale sage page with deep green accents, or the original near-black green. */
 html:root {
-  --background0: #111310;
-  --background1: #181b17;
-  --background2: #23271f;
-  --background3: #343a2f;
-  --foreground0: #f4f5f1;
-  --foreground1: #d8dbd2;
-  --foreground2: #9ba393;
-  --accent-primary: #82c952;
-  --accent-secondary: #5f8c44;
-  --accent-highlight: #d7e9ab;
-  --danger: #94a97b;
-  --surface: #171a16;
-  --surface-raised: #1d211b;
-  --border-subtle: rgb(218 226 207 / 17%);
-  --border-strong: rgb(218 226 207 / 46%);
-  --shadow-raised: 0 1rem 2.6rem rgb(0 0 0 / 22%);
+  --background0: light-dark(#f3f6ee, #111310);
+  --background1: light-dark(#e9eee2, #181b17);
+  --background2: light-dark(#dce4d1, #23271f);
+  --background3: light-dark(#c3cfb4, #343a2f);
+  --foreground0: light-dark(#151912, #f4f5f1);
+  --foreground1: light-dark(#323a2b, #d8dbd2);
+  --foreground2: light-dark(#59644f, #9ba393);
+  --accent-primary: light-dark(#3a7417, #82c952);
+  --accent-secondary: light-dark(#4d7535, #5f8c44);
+  --accent-highlight: light-dark(#3f5f12, #d7e9ab);
+  --danger: light-dark(#5d6f47, #94a97b);
+  --surface: light-dark(#f9fbf6, #171a16);
+  --surface-raised: light-dark(#ffffff, #1d211b);
+  --border-subtle: light-dark(rgb(48 70 32 / 18%), rgb(218 226 207 / 17%));
+  --border-strong: light-dark(rgb(48 70 32 / 42%), rgb(218 226 207 / 46%));
+  --shadow-raised: 0 1rem 2.6rem light-dark(rgb(40 60 20 / 10%), rgb(0 0 0 / 22%));
   --panel-bg: color-mix(in srgb, var(--surface) 94%, transparent);
   --panel-border: var(--border-subtle);
   --control-bg: color-mix(in srgb, var(--background0) 80%, transparent);
